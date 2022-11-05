@@ -35,6 +35,5 @@ namespace DateTime
             public ushort Second;
             public ushort Millisecond;
         };
-
     }
 }
