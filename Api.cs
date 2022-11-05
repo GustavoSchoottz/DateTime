@@ -1,11 +1,4 @@
 ﻿using Newtonsoft.Json;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
 
 namespace DateTime
 {
@@ -17,11 +10,8 @@ namespace DateTime
             var response = await client.GetAsync("https://timeapi.io/api/Time/current/zone?timeZone=America/Sao_Paulo");
             var content = await response.Content.ReadAsStringAsync();
 
-            // Console.WriteLine(content);
-            var teste = JsonConvert.DeserializeObject<DataHora>(content);
-            Console.WriteLine(teste.Month.ToString() + " " + teste.Time.ToString());
-            SetDateTime.Set(teste.Year, teste.Month, teste.Day, teste.Hour, teste.Minute, teste.Seconds);
-
+            DataHora? dataHora = JsonConvert.DeserializeObject<DataHora>(content);
+            SetDateTime.Set(dataHora.Year, dataHora.Month, dataHora.Day, dataHora.Hour, dataHora.Minute, dataHora.Seconds);
         }
     }
 
