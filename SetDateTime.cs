@@ -20,6 +20,7 @@ namespace DateTime
             updatedTime.Hour = (ushort)hour;
             updatedTime.Minute = (ushort)minute;
             updatedTime.Second = (ushort)seconds;
+
             // Call the unmanaged function that sets the new date and time instantly
             Win32SetSystemTime(ref updatedTime);
         }
